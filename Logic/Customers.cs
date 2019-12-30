@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Logic
@@ -15,11 +16,17 @@ namespace Logic
             return true;
         }
 
+        public bool Remove(int Id)
+        {
+            CustomerList.Remove(getCustomerById(Id));
+            return true;
+        }
+
         public int getLength() { return CustomerList.Count; }
 
         public Customer getCustomerById(int Id)
         {
-            return CustomerList[Id];
+            return CustomerList.SingleOrDefault(x => x.Id == Id);
         }
 
         public bool Clear()
@@ -28,6 +35,6 @@ namespace Logic
             return true;
         }
 
-        
+
     }
 }

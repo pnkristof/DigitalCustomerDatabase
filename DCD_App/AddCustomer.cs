@@ -33,7 +33,7 @@ namespace DCD_App
                 Address = textBox2.Text,
                 Phone = textBox3.Text,
                 Email = textBox4.Text,
-                Brust = int.Parse(textBox5.Text == "" ? "0" : textBox5.Text)
+                Bust = int.Parse(textBox5.Text == "" ? "0" : textBox5.Text)
             };
 
             Main.customers.Add(customer);

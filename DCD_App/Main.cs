@@ -9,10 +9,13 @@ namespace DCD_App
 
         public static Main Instance { get; set; }
 
-        public static Customers customers = new Customers();
+        public static Customers customers;
+        public static Customer SelectedCustomer;
         public Main()
         {
             InitializeComponent();
+            customers = new Customers();
+            SelectedCustomer = new Customer();
             Instance = this;
         }
 
@@ -20,24 +23,6 @@ namespace DCD_App
         {
             AddCustomer add = new AddCustomer();
             add.Show();
-
-            //string name = textBox1.Text;
-            //string address = textBox2.Text;
-            //string phone = textBox3.Text;
-            //string email = textBox4.Text;
-
-            //Customer customer = new Customer
-            //{
-            //    Name = name,
-            //    Address = address,
-            //    Phone = phone,
-            //    Email = email,
-            //    Brust = 123
-            //};
-
-            //customers.Add(customer);
-            //RefreshList();
-
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,11 +31,11 @@ namespace DCD_App
 
             if (compListView.SelectedIndices.Count > 0)
             {
-                var selectedCustomer = customers.getCustomerById(compListView.SelectedIndices[0]);
-                label1.Text = selectedCustomer.Name;
-                label2.Text = selectedCustomer.Address;
-                label3.Text = selectedCustomer.Phone;
-                label4.Text = selectedCustomer.Email;
+                SelectedCustomer = compListView.SelectedItem as Customer;
+                label_Name.Text = SelectedCustomer.Name;
+                label_Address.Text = SelectedCustomer.Address;
+                label_Phone.Text = SelectedCustomer.Phone;
+                label_Email.Text = SelectedCustomer.Email;
             }
 
         }
@@ -58,17 +43,13 @@ namespace DCD_App
         public void RefreshList()
         {
             listBox1.Items.Clear();
-
-            for (int i = 0; i < customers.getLength(); i++)
+            
+            foreach (var customer in Customers.CustomerList)
             {
-                listBox1.Items.Add(customers.getCustomerById(i));
+                listBox1.Items.Add(customer);
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -78,6 +59,12 @@ namespace DCD_App
         private void button3_Click(object sender, EventArgs e)
         {
             DataManager.Load();
+            RefreshList();
+        }
+
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            customers.Remove(SelectedCustomer.Id);
             RefreshList();
         }
     }
