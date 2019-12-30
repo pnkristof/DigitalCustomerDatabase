@@ -11,7 +11,7 @@ namespace Logic
 
         public bool Add(Customer customer)
         {
-            customer.Id = CustomerList.Count;
+            customer.Id = CustomerList.Max(x => x.Id)+1;
             CustomerList.Add(customer);
             return true;
         }

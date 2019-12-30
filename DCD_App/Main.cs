@@ -67,5 +67,11 @@ namespace DCD_App
             customers.Remove(SelectedCustomer.Id);
             RefreshList();
         }
+
+        private void button_OpenDetails_Click(object sender, EventArgs e)
+        {
+            CustomerDetails details = new CustomerDetails(SelectedCustomer);
+            details.Show();
+        }
     }
 }

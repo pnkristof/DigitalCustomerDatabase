@@ -33,13 +33,15 @@ namespace Logic
         // térdbőség
         public int KneeCircumference { get; set; }
         // aljabőség
-        public int Aljaboseg { get; set; }
+        public int TrousersBottomCircumference { get; set; }
         // térdmagas
         public int KneeHeight { get; set; }
         // hasbőség
         public int AbdomenCircumference { get; set; }
-        // karbőség
-        public int ArmCircumference { get; set; }
+        // derékmagasság
+        public int WaistHeight { get; set; }
+        // testmagasság
+        public int BodyHeight { get; set; }
 
         public override string ToString()
         {

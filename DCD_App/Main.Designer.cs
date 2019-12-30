@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button_Delete = new System.Windows.Forms.Button();
+            this.button_OpenDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -142,11 +143,23 @@
             this.button_Delete.UseVisualStyleBackColor = false;
             this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
             // 
+            // button_OpenDetails
+            // 
+            this.button_OpenDetails.Location = new System.Drawing.Point(376, 209);
+            this.button_OpenDetails.Name = "button_OpenDetails";
+            this.button_OpenDetails.Size = new System.Drawing.Size(75, 23);
+            this.button_OpenDetails.TabIndex = 14;
+            this.button_OpenDetails.Text = "Megnyitás";
+            this.button_OpenDetails.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button_OpenDetails.UseVisualStyleBackColor = true;
+            this.button_OpenDetails.Click += new System.EventHandler(this.button_OpenDetails_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_OpenDetails);
             this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -174,6 +187,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button_Delete;
+        private System.Windows.Forms.Button button_OpenDetails;
     }
 }
 
